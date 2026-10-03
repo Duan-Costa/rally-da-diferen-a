@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rally Diferença · FJU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="site-rally-diferenca.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+  <header class="topo">
+    <a class="marca" href="#topo">
+      <img src="imagens/logo-fju.png" alt="Vem ser FJU">
+      <span>Rally Diferença</span>
+    </a>
+    <nav>
+      <a href="#tribos">Tribos</a>
+      <a href="#placar">Placar</a>
+      <a href="#cadastro">Cadastro</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#mensagens">Mensagens</a>
+      <a href="#musicas">Músicas</a>
+    </nav>
+  </header>
+
+  <main id="topo">
+
+    <section class="hero">
+      <div class="hero-bg-img ativo fundo-1"></div>
+      <div class="hero-bg-img fundo-2"></div>
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-topo">
+        <h1><span class="linha1">O cinturão</span><em>tem um dono</em></h1>
+        <p class="hero-frase" id="frase"></p>
+      </div>
+
+      <div class="placar">
+        <div class="lado juda">
+          <div class="flutua">
+            <div class="tilt glare" data-tilt="20">
+              <img class="escudo" src="imagens/logo-juda.png" alt="Emblema da tribo de Judá">
+            </div>
+          </div>
+          <p class="nome-tribo">Judá</p>
+          <p class="pontos" id="pt-juda">0</p>
+          <p class="rotulo-pontos">pontos</p>
+        </div>
+
+        <div class="centro">
+          <p class="versus">disputa pelo</p>
+          <div class="flutua lento">
+            <div class="tilt glare cinturao-wrap" data-tilt="12">
+              <img class="cinturao" src="imagens/cinturao.png" alt="Cinturão de campeão da FJU">
+            </div>
+          </div>
+          <p class="versus" id="lider">título</p>
+        </div>
+
+        <div class="lado levi">
+          <div class="flutua">
+            <div class="tilt glare" data-tilt="20">
+              <img class="escudo" src="imagens/logo-levi.png" alt="Emblema da tribo de Levi">
+            </div>
+          </div>
+          <p class="nome-tribo">Levi</p>
+          <p class="pontos" id="pt-levi">0</p>
+          <p class="rotulo-pontos">pontos</p>
+        </div>
+      </div>
+
+      <div class="barra" role="img" aria-label="Proporção de pontos entre as tribos">
+        <i class="b-juda largura-inicial" id="barra-j"></i>
+        <i class="b-levi largura-inicial" id="barra-l"></i>
+      </div>
+      <div class="legenda-barra"><span id="pct-j">50%</span><span id="pct-l">50%</span></div>
+
+      <div class="compartilhar-wrap">
+        <button class="btn solido" id="btn-compartilhar">📤 Compartilhar placar</button>
+        <p class="form-status" id="status-compartilhar"></p>
+      </div>
+    </section>
+
+    <section id="tribos">
+      <video class="fundo-video-tribos" autoplay muted loop playsinline aria-hidden="true" tabindex="-1">
+        <source src="../video/logo-fundo.mp4" type="video/mp4">
+      </video>
+      <div class="env">
+        <h2>As duas tribos</h2>
+        <p class="sub">Cada jovem entra numa tribo no começo do Rally e fica nela até a final. Tudo o que você faz —
+          presença, convite, prova, projeto — vira ponto pro seu lado.</p>
+
+        <div class="tribos">
+          <article class="card-tribo juda tilt" data-tilt="6">
+            <div class="topo-card">
+              <img src="imagens/logo-juda.png" alt="Escudo da tribo de Judá">
+              <div>
+                <h3>Judá</h3>
+                <p class="lema">Coragem para avançar</p>
+              </div>
+            </div>
+            <p class="texto">Judá era a tribo que ia na frente na hora da batalha. Aqui é igual: é a tribo que puxa o
+              convite, que chama o amigo de fora e não tem medo de dar o primeiro passo.</p>
+            <p class="versiculo">“Judá é um leãozinho... quem o despertará?” — Gênesis 49:9</p>
+          </article>
+
+          <article class="card-tribo levi tilt" data-tilt="6">
+            <div class="topo-card">
+              <img src="imagens/logo-levi.png" alt="Escudo da tribo de Levi">
+              <div>
+                <h3>Levi</h3>
+                <p class="lema">Fidelidade no serviço</p>
+              </div>
+            </div>
+            <p class="texto">Levi cuidava do altar quando ninguém estava olhando. É a tribo da constância: chega cedo,
+              monta, serve, guarda e volta na semana seguinte fazendo tudo de novo.</p>
+            <p class="versiculo">“Quem é do Senhor venha até mim.” — Êxodo 32:26</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proximos-encontros">
+      <div class="env">
+        <h2>Próximos encontros</h2>
+        <div class="explica">
+          <figure class="explica-foto tilt" data-tilt="6">
+            <div class="foto-caixa"><img src="imagens/encontro-algo-a-mais.png" alt="Reunião do Algo A+ — FJU"></div>
+            <figcaption>
+              <span class="horario">Segunda-feira às 19h</span>
+              <span class="explica-desc">É ideal para quem já participa das atividades da igreja ou da FJU e deseja ir
+                além na vida com Deus, embora também seja aberto a novos participantes.</span>
+              <span class="explica-faq"><strong>Dias e horários:</strong> Todas às segundas-feiras, 19h.</span>
+            </figcaption>
+          </figure>
+          <figure class="explica-foto tilt" data-tilt="6">
+            <div class="foto-caixa"><img src="imagens/encontro-jovem.png" alt="Encontro Jovem FJU"></div>
+            <figcaption>
+              <span class="horario">Sábado às 15h</span>
+              <span class="explica-desc">É um espaço voltado para receber jovens, oferecer suporte emocional e
+                espiritual, e ajudar quem passa por problemas ou busca orientações. O grupo também promove a integração
+                por meio de amizades, cultura, esportes e projetos sociais ligados à FJU.</span>
+              <span class="explica-faq">Gostaria de saber mais sobre os projetos específicos da FJU?</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="placar">
+      <div class="env">
+        <h2>Placar por prova</h2>
+        <p class="sub">Atualizado pela organização a cada rodada. Quem estiver organizando pode abrir o modo de edição,
+          lançar os pontos e o placar do topo se ajusta na hora.</p>
+
+        <div class="tabela-wrap">
+          <table id="tabela">
+            <thead>
+              <tr>
+                <th scope="col">Prova</th>
+                <th scope="col" class="centralizado">Judá</th>
+                <th scope="col" class="centralizado">Levi</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela"></tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td class="num j" id="tot-j">0</td>
+                <td class="num l" id="tot-l">0</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <div class="barra-acoes">
+          <button class="btn solido" id="btn-editar">Abrir modo organizador</button>
+          <button class="btn fantasma" id="btn-zerar">Zerar placar</button>
+        </div>
+        <p class="aviso" id="aviso-placar">Os pontos ficam salvos só neste aparelho, no navegador. A linha "Presença dos
+          jovens" é automática e compartilhada — vem do Cadastro.</p>
+      </div>
+    </section>
+
+    <section id="cadastro">
+      <div class="env">
+        <h2>Cadastro de Jovens</h2>
+        <p class="sub">Cadastre uma vez. Toda semana, marque os dias que você veio — quarta, sexta, sábado ou domingo —
+          e cada um vale 10 pontos na hora pra sua tribo.</p>
+
+        <form class="form-cadastro" id="form-jovem">
+          <div class="form-linha">
+            <input type="text" id="input-nome-jovem" placeholder="Nome" maxlength="60" autocomplete="off" required>
+            <select id="input-tribo-jovem" required>
+              <option value="" disabled selected>Tribo</option>
+              <option value="juda">Judá</option>
+              <option value="levi">Levi</option>
+            </select>
+          </div>
+          <div class="form-linha">
+            <input type="tel" id="input-whats-jovem" placeholder="WhatsApp (com DDD)" maxlength="20" autocomplete="off"
+              required>
+          </div>
+          <fieldset class="dias-preferencia">
+            <legend>Dias que costuma participar</legend>
+            <div class="opcoes-dias">
+              <label><input type="checkbox" name="dias-preferencia" value="quarta"><span>Quarta</span></label>
+              <label><input type="checkbox" name="dias-preferencia" value="sexta"><span>Sexta</span></label>
+              <label><input type="checkbox" name="dias-preferencia" value="sabado"><span>Sábado</span></label>
+              <label><input type="checkbox" name="dias-preferencia" value="domingo"><span>Domingo</span></label>
+            </div>
+          </fieldset>
+          <button class="btn solido" type="submit" id="btn-cadastrar-jovem">Cadastrar</button>
+          <p class="form-status" id="status-jovem" role="status"></p>
+        </form>
+
+        <details class="gerenciar-jovens" id="gerenciar-jovens">
+          <summary>Editar cadastros e presenças</summary>
+          <div class="busca-jovem">
+            <input type="text" id="input-buscar-jovem" placeholder="Buscar jovem pelo nome...">
+          </div>
+          <div class="lista-jovens" id="lista-jovens">
+            <p class="mensagens-vazio" id="jovens-vazio">Carregando...</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="quiz">
+      <div class="env">
+        <h2>Quiz do Rally</h2>
+        <p class="sub">Cinquenta perguntas sobre as duas tribos. Escolha o seu lado, responda e veja quantos pontos você
+          conseguiria levar pra sua tribo.</p>
+
+        <div class="quiz" id="quiz-box">
+          <div id="quiz-inicio">
+            <p class="pergunta-tribo">Por qual tribo você joga?</p>
+            <div class="escolha-tribo">
+                <button class="chip j" id="chip-j" aria-pressed="false"><img src="imagens/logo-juda.png"
+                  alt="">Judá</button>
+                <button class="chip l" id="chip-l" aria-pressed="false"><img src="imagens/logo-levi.png"
+                  alt="">Levi</button>
+            </div>
+            <div class="barra-acoes"><button class="btn solido" id="btn-comecar" disabled>Começar</button></div>
+          </div>
+
+          <div id="quiz-jogo" hidden>
+            <p class="progresso" id="progresso"></p>
+            <p class="pergunta" id="pergunta"></p>
+            <div class="alternativas" id="alternativas"></div>
+            <p class="feedback" id="feedback"></p>
+            <div class="barra-acoes"><button class="btn" id="btn-proxima" hidden>Próxima</button></div>
+          </div>
+
+          <div id="quiz-fim" hidden class="resultado">
+            <p class="progresso">acertos</p>
+            <p class="placarfinal" id="acertos">0/50</p>
+            <p id="veredito" class="veredito"></p>
+            <div class="barra-acoes barra-acoes-centro"><button class="btn solido" id="btn-refazer">Jogar de
+                novo</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="env">
+        <h2>Ação dos projetos</h2>
+        <p class="sub">Cada projeto da FJU entra no Rally com uma missão própria. Clique num projeto pra ver quem já faz
+          parte dele e colocar a sua foto também.</p>
+        <div class="projetos" id="lista-projetos"></div>
+
+        <div class="barra-acoes">
+          <button class="btn solido" id="btn-editar-proj">Editar pontos dos projetos</button>
+          <button class="btn fantasma" id="btn-zerar-proj">Zerar pontos dos projetos</button>
+        </div>
+        <p class="aviso" id="aviso-projetos">Os pontos ficam salvos só neste aparelho, no navegador.</p>
+      </div>
+    </section>
+
+    <section id="mensagens">
+      <div class="env">
+        <h2>Mensagens</h2>
+        <p class="sub">Palavras que marcam o Rally. Assista e, se você organiza a página, adicione novos vídeos direto
+          por aqui.</p>
+
+        <div class="mensagens-grade" id="lista-mensagens">
+          <p class="mensagens-vazio" id="mensagens-vazio">Carregando...</p>
+        </div>
+
+        <form class="form-mensagem" id="form-mensagem">
+          <p class="modal-rotulo">Adicionar uma mensagem em vídeo</p>
+          <div class="form-linha">
+            <input type="text" id="input-titulo-msg" placeholder="Título da mensagem" maxlength="60" autocomplete="off"
+              required>
+            <input type="file" id="input-video-msg" accept="video/*" required>
+          </div>
+          <button class="btn solido" type="submit" id="btn-enviar-msg">Adicionar mensagem</button>
+          <p class="form-status" id="status-mensagem" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="musicas">
+      <div class="env">
+        <h2>Músicas do Rally</h2>
+        <p class="sub">A trilha que embala essa disputa. Toca uma de cada vez — dá play e escuta.</p>
+        <div class="painel-musicas" id="painel-musicas">
+          <p class="musica-vazia" id="musicas-vazio">Carregando...</p>
+        </div>
+
+        <form class="form-musica" id="form-musica">
+          <p class="modal-rotulo">Adicionar uma música</p>
+          <div class="form-linha">
+            <input type="text" id="input-titulo-musica" placeholder="Nome da música" maxlength="70" autocomplete="off"
+              required>
+            <input type="file" id="input-arquivo-musica" accept="video/*,audio/*" required>
+          </div>
+          <button class="btn solido" type="submit" id="btn-enviar-musica">Adicionar música</button>
+          <p class="form-status" id="status-musica" role="status"></p>
+        </form>
+
+        <div class="radio-card" aria-label="Rádio ao vivo">
+          <div class="radio-identidade">
+            <span class="radio-sinal" aria-hidden="true"><i></i><i></i><i></i></span>
+            <div>
+              <p class="radio-chamada">Rádio ao vivo</p>
+              <h3>Rede Aleluia</h3>
+              <p class="radio-frequencia">98,3 FM <span>·</span> Franca, SP</p>
+            </div>
+          </div>
+          <button class="radio-play" id="btn-radio" type="button" aria-label="Tocar Rádio Aleluia" aria-pressed="false">
+            <span aria-hidden="true">▶</span>
+          </button>
+          <p class="radio-status" id="status-radio" role="status">Pronta para tocar</p>
+          <a class="radio-oficial" href="https://redealeluia.com.br/" target="_blank" rel="noopener noreferrer">Abrir transmissão oficial</a>
+          <audio id="radio-live" preload="none" src="https://station.azrmcsoftbroadcast.com.br/listen/radio_franca/rd_franca"></audio>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="lightbox-fundo" id="lightbox-fundo" hidden>
+    <button class="modal-fechar lightbox-fechar" id="lightbox-fechar" type="button" aria-label="Fechar">✕</button>
+    <button class="carrossel-seta esquerda lightbox-seta" id="lightbox-anterior" type="button"
+      aria-label="Foto anterior">‹</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="carrossel-seta direita lightbox-seta" id="lightbox-proximo" type="button"
+      aria-label="Próxima foto">›</button>
+    <p class="lightbox-legenda" id="lightbox-legenda"></p>
+  </div>
+
+  <div class="modal-fundo" id="modal-fundo" hidden>
+    <div class="modal-proj" role="dialog" aria-modal="true" aria-labelledby="modal-titulo" id="modal-proj"
+      tabindex="-1">
+      <button class="modal-fechar" id="modal-fechar" type="button" aria-label="Fechar">✕</button>
+      <div class="modal-cabeca">
+        <img id="modal-logo" alt="">
+        <div>
+          <h3 id="modal-titulo"></h3>
+          <p id="modal-missao"></p>
+        </div>
+      </div>
+
+      <div class="modal-corpo">
+        <p class="modal-rotulo">Quem já faz parte</p>
+        <div class="galeria" id="modal-galeria">
+          <p class="galeria-vazio" id="galeria-vazio">Nenhuma foto ainda. Seja o primeiro.</p>
+        </div>
+
+        <form class="form-foto" id="form-foto">
+          <p class="modal-rotulo">Adicionar a sua foto</p>
+          <div class="form-linha">
+            <input type="text" id="input-nome" placeholder="Seu nome" maxlength="40" autocomplete="off">
+            <input type="file" id="input-foto" accept="image/*" required>
+          </div>
+          <button class="btn solido" type="submit" id="btn-enviar-foto">Adicionar</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <img src="imagens/logo-rally.png" alt="Vem ser FJU">
+    <p>Rally Diferença · Força Jovem Sede Redentor</p>
+    <p>Todo Sábado às 15h, encontro jovem — não fica de fora.</p>
+  </footer>
+
+  <script src="site-rally-diferenca.js"></script>
+</body>
+
+</html>
